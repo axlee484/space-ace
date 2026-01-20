@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://culckgwl7ionn"]
+
+[ext_resource type="PackedScene" uid="uid://hyoygje47ly7" path="res://main/background.tscn" id="1_53q0u"]
+[ext_resource type="FontFile" uid="uid://bqnln4uqxtmwj" path="res://assets/LG32W.tres" id="1_pjrb6"]
+[ext_resource type="Texture2D" uid="uid://cse2ffoikd6yb" path="res://assets/ui/blue_button00.png" id="2_xwkvk"]
+[ext_resource type="Texture2D" uid="uid://2qhmsxpotb77" path="res://assets/ui/green_button00.png" id="3_3wy1v"]
+[ext_resource type="FontFile" uid="uid://douxi2ul1fsgm" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="3_c651c"]
+[ext_resource type="AudioStream" uid="uid://ciuerbhm4n4vq" path="res://assets/sounds/loops/TitleScreen.mp3" id="6_kfbq2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.9137255, 0.9254902, 0.4745098, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_pjrb6")
+theme_override_font_sizes/font_size = 48
+text = "SPACE ACE(ISH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_xwkvk")
+texture_pressed = ExtResource("3_3wy1v")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0.8901961, 1)
+theme_override_fonts/font = ExtResource("3_c651c")
+theme_override_font_sizes/font_size = 24
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" parent="." instance=ExtResource("1_53q0u")]
+
+[node name="TitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kfbq2")
+autoplay = true
