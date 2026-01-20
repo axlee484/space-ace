@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://tqig7v7uel2a"]
+
+[ext_resource type="Texture2D" uid="uid://ca40ooe55s168" path="res://assets/ships/ships_human_1.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://ce4m5ueb4kwh6" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
+radius = 14.142136
+
+[sub_resource type="Animation" id="Animation_oul6g"]
+resource_name = "fly"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_rkbax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_g1dw6"]
+resource_name = "turn"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1dw6"]
+_data = {
+&"RESET": SubResource("Animation_rkbax"),
+&"fly": SubResource("Animation_oul6g"),
+&"turn": SubResource("Animation_g1dw6")
+}
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oul6g")
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_oul6g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g1dw6")
+}
+autoplay = "fly"

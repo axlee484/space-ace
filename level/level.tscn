@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c01ox4fe8ldvp"]
+
+[ext_resource type="PackedScene" uid="uid://c6h5pnl6qreit" path="res://main/parallax.tscn" id="1_7lnir"]
+[ext_resource type="Texture2D" uid="uid://wadhbu6hvdfa" path="res://assets/backgrounds/spr_stars01.png" id="2_qohg2"]
+[ext_resource type="Texture2D" uid="uid://dr3f47ebs7cij" path="res://assets/backgrounds/spr_stars02.png" id="3_vkbyq"]
+[ext_resource type="Texture2D" uid="uid://dk23vomdq5vma" path="res://assets/backgrounds/GalaxyUno.png" id="4_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://tqig7v7uel2a" path="res://player/player.tscn" id="5_ktfr2"]
+
+[node name="Level" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("4_vkbyq")
+centered = false
+
+[node name="Parallax2D2" parent="BG" instance=ExtResource("1_7lnir")]
+scroll_speed = Vector2(0, 50)
+
+[node name="Sprite2D" parent="BG/Parallax2D2" index="0"]
+texture = ExtResource("2_qohg2")
+
+[node name="Parallax2D3" parent="BG" instance=ExtResource("1_7lnir")]
+scroll_speed = Vector2(0, 80)
+
+[node name="Sprite2D" parent="BG/Parallax2D3" index="0"]
+texture = ExtResource("3_vkbyq")
+
+[node name="Player" parent="." instance=ExtResource("5_ktfr2")]
+position = Vector2(211, 587)
+SPEED = Vector2(200, 200)
+
+[editable path="BG/Parallax2D2"]
+[editable path="BG/Parallax2D3"]
