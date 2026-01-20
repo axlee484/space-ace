@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6h5pnl6qreit"]
+
+[ext_resource type="Texture2D" uid="uid://dk23vomdq5vma" path="res://assets/backgrounds/GalaxyUno.png" id="1_cy2ju"]
+[ext_resource type="Script" uid="uid://btr5skxdnslly" path="res://main/parallax.gd" id="1_suyow"]
+
+[node name="Parallax2D" type="Parallax2D"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(480, 1600)
+repeat_times = 2
+script = ExtResource("1_suyow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cy2ju")
+centered = false
