@@ -32,10 +32,10 @@ func move(delta: float):
     else:
         animationPlayer.play("fly")
 
-    position+= SPEED*delta*inputDir
-    position = Vector2(
-        clampf(position.x, topLeft.x, bottomRight.x),
-        clampf(position.y, topLeft.y, bottomRight.y)
+    global_position += SPEED*delta*inputDir
+    global_position = Vector2(
+        clampf(global_position.x, topLeft.x, bottomRight.x),
+        clampf(global_position.y, topLeft.y, bottomRight.y)
         )
 
 
