@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0aleuqc2ovtc"]
+
+[ext_resource type="Script" uid="uid://crpsstvht55j1" path="res://waveManager/wave_manager.gd" id="1_nf64y"]
+
+[sub_resource type="Curve2D" id="Curve2D_nf64y"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 121, -79, 0, 0, 0, 0, 136, 715)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_pdeqa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -40, -41, 0, 0, 0, 0, 31, 576, 0, 0, 0, 0, 66, 19, 0, 0, 0, 0, 100, 590, 0, 0, 0, 0, 192, 607, 0, 0, 0, 0, 175, 95, 0, 0, 0, 0, 239, 373, 0, 0, 0, 0, 287, 315, 0, 0, 0, 0, 322, 354, 0, 0, 0, 0, 338, 339, 0, 0, 0, 0, 372, 360, 0, 0, 0, 0, 530, 317)
+}
+point_count = 12
+
+[sub_resource type="Curve2D" id="Curve2D_vx66j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -115, 49, -304.799, -4.6585, 304.799, 4.6585, 220, 324, 0, 0, 0, 0, 609, 68)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_81wkx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 253, -38, 0, 0, 0, 0, 239, 679)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_gb1sh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -143, 128, -291.489, -1.9965001, 291.489, 1.9965001, 207, 47, 0, 0, 0, 0, 609, 125)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_sy5w3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 376, -55, 0, 0, 0, 0, 357, 773)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7s46s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -133, 280, 0, 0, 0, 0, 566, 355)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bptu4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -153, 377, 0, 0, 0, 0, 567, 461)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_04rsw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -178, 739, -229.59752, 0.66550004, 229.59752, -0.66550004, 201, 546, 0, 0, 0, 0, 555, 610)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_6cngt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 297, -59, 25.954502, -286.8305, -25.954502, 286.8305, 449, 388, 0, 0, 0, 0, 260, 725)
+}
+point_count = 3
+
+[node name="WaveManager" type="Node2D"]
+script = ExtResource("1_nf64y")
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_nf64y")
+
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_pdeqa")
+
+[node name="Path2D3" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_vx66j")
+
+[node name="Path2D4" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_81wkx")
+
+[node name="Path2D5" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_gb1sh")
+
+[node name="Path2D6" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_sy5w3")
+
+[node name="Path2D7" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_7s46s")
+
+[node name="Path2D8" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_bptu4")
+
+[node name="Path2D9" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_04rsw")
+
+[node name="Path2D10" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_6cngt")
