@@ -1,0 +1,12 @@
+extends Node
+
+
+enum BULLET_TYPE {
+    PLAYER_BULLET,
+    ENEMY_BULLET
+}
+
+enum ENEMY_TYPE {
+    ZIPPER_ENEMY,
+    BOMBER_ENEMY
+}

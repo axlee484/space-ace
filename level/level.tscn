@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c01ox4fe8ldvp"]
+[gd_scene load_steps=8 format=3 uid="uid://c01ox4fe8ldvp"]
 
 [ext_resource type="PackedScene" uid="uid://c6h5pnl6qreit" path="res://main/parallax.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://bfchkk6xjl3he" path="res://level/level.gd" id="1_ivpvi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dr3f47ebs7cij" path="res://assets/backgrounds/spr_stars02.png" id="3_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://dk23vomdq5vma" path="res://assets/backgrounds/GalaxyUno.png" id="4_vkbyq"]
 [ext_resource type="PackedScene" uid="uid://tqig7v7uel2a" path="res://player/player.tscn" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://d0aleuqc2ovtc" path="res://waveManager/wave_manager.tscn" id="7_ivpvi"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ivpvi")
@@ -32,6 +33,8 @@ texture = ExtResource("3_vkbyq")
 [node name="Player" parent="." instance=ExtResource("5_ktfr2")]
 position = Vector2(211, 587)
 SPEED = Vector2(200, 200)
+
+[node name="WaveManager" parent="." instance=ExtResource("7_ivpvi")]
 
 [editable path="BG/Parallax2D2"]
 [editable path="BG/Parallax2D3"]

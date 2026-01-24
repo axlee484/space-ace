@@ -8,6 +8,7 @@ class_name Player
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
+@onready var playerGun: BaseGun = $PlayerGun
 
 var topLeft := Vector2.ZERO
 var bottomRight := Vector2.ZERO
@@ -40,8 +41,15 @@ func move(delta: float):
 
 
 
+
+
+func shoot():
+    playerGun.shoot(Vector2.UP)
+
+
 func _process(delta: float) -> void:
     move(delta)
+    shoot()
 
 
 func getInput():
