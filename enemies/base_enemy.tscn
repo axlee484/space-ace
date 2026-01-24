@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cma47wykpckil"]
+
+[ext_resource type="Script" uid="uid://bbtw174yx2ebm" path="res://enemies/base_enemy.gd" id="1_b5ht1"]
+[ext_resource type="PackedScene" uid="uid://ekpttbmjignq" path="res://guns/enemy_gun.tscn" id="2_b5ht1"]
+[ext_resource type="Texture2D" uid="uid://iiau8cwuhmjg" path="res://assets/ships/zipper_1.png" id="2_bfj6p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ht1"]
+atlas = ExtResource("2_bfj6p")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xens1"]
+atlas = ExtResource("2_bfj6p")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35jd6"]
+atlas = ExtResource("2_bfj6p")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtyv1"]
+atlas = ExtResource("2_bfj6p")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a33f8"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ht1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xens1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35jd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtyv1")
+}],
+"loop": true,
+"name": &"zipper_1",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7qyq"]
+resource_local_to_scene = true
+radius = 14.0
+
+[node name="BaseEnemy" type="PathFollow2D"]
+script = ExtResource("1_b5ht1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a33f8")
+animation = &"zipper_1"
+frame_progress = 0.46753263
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j7qyq")
+
+[node name="EnemyGun" parent="." instance=ExtResource("2_b5ht1")]
+SPEED = 100.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
