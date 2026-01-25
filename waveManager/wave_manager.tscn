@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0aleuqc2ovtc"]
+[gd_scene load_steps=11 format=3 uid="uid://d0aleuqc2ovtc"]
 
 [ext_resource type="Script" uid="uid://crpsstvht55j1" path="res://waveManager/wave_manager.gd" id="1_nf64y"]
 
@@ -8,12 +8,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 121, -79, 0, 0, 0, 0, 136, 715)
 }
 point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_pdeqa"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -40, -41, 0, 0, 0, 0, 31, 576, 0, 0, 0, 0, 66, 19, 0, 0, 0, 0, 100, 590, 0, 0, 0, 0, 192, 607, 0, 0, 0, 0, 175, 95, 0, 0, 0, 0, 239, 373, 0, 0, 0, 0, 287, 315, 0, 0, 0, 0, 322, 354, 0, 0, 0, 0, 338, 339, 0, 0, 0, 0, 372, 360, 0, 0, 0, 0, 530, 317)
-}
-point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_vx66j"]
 _data = {
@@ -71,9 +65,6 @@ script = ExtResource("1_nf64y")
 [node name="Path2D" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_nf64y")
 
-[node name="Path2D2" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_pdeqa")
-
 [node name="Path2D3" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_vx66j")
 
@@ -97,3 +88,23 @@ curve = SubResource("Curve2D_04rsw")
 
 [node name="Path2D10" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_6cngt")
+
+[node name="ZipperPaths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="ZipperPaths"]
+curve = SubResource("Curve2D_nf64y")
+
+[node name="Path2D10" type="Path2D" parent="ZipperPaths"]
+curve = SubResource("Curve2D_6cngt")
+
+[node name="Path2D3" type="Path2D" parent="ZipperPaths"]
+curve = SubResource("Curve2D_vx66j")
+
+[node name="Path2D8" type="Path2D" parent="ZipperPaths"]
+curve = SubResource("Curve2D_bptu4")
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_timer_timeout"]

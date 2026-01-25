@@ -65,7 +65,7 @@ _data = {
 &"turn": SubResource("Animation_g1dw6")
 }
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource("1_rkbax")
 
 [node name="PlayerGun" parent="." instance=ExtResource("3_g1dw6")]

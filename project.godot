@@ -17,15 +17,19 @@ config/icon="uid://rsicti8dfvbt"
 [autoload]
 
 SignalManager="*res://singletons/signalManager.gd"
+GameManager="*res://singletons/gameManager.gd"
 ObjectMaker="*res://singletons/objectMaker.gd"
 SoundManager="*res://singletons/soundManager.gd"
-GameManager="*res://singletons/gameManager.gd"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=640
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+player=""
 
 [input]
 

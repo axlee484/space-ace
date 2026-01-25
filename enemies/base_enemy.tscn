@@ -46,7 +46,12 @@ resource_local_to_scene = true
 radius = 14.0
 
 [node name="BaseEnemy" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_b5ht1")
+IS_SHOOTING = true
+
+[node name="EnemyGun" parent="." instance=ExtResource("2_b5ht1")]
+SPEED = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a33f8")
@@ -57,9 +62,6 @@ frame_progress = 0.46753263
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_j7qyq")
-
-[node name="EnemyGun" parent="." instance=ExtResource("2_b5ht1")]
-SPEED = 100.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

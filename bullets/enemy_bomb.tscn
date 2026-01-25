@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://dfn4qkncpbyt2"]
+
+[ext_resource type="PackedScene" uid="uid://c6xpp4ay6frhg" path="res://bullets/enemy_bullet.tscn" id="1_jvhxg"]
+[ext_resource type="Script" uid="uid://dnxhdv8rkwpy2" path="res://bullets/enemy_bomb.gd" id="2_wo37i"]
+[ext_resource type="Texture2D" uid="uid://d0bpnlq31yq04" path="res://assets/lasers/circle_bomb_green-Sheet.png" id="2_x00al"]
+[ext_resource type="Texture2D" uid="uid://d3i84nobv00qb" path="res://assets/lasers/circle_bomb_red-Sheet.png" id="3_pa4ep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa4ep"]
+atlas = ExtResource("2_x00al")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo37i"]
+atlas = ExtResource("2_x00al")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pxtk"]
+atlas = ExtResource("2_x00al")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaqh4"]
+atlas = ExtResource("2_x00al")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ojh"]
+atlas = ExtResource("3_pa4ep")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqk3q"]
+atlas = ExtResource("3_pa4ep")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1swge"]
+atlas = ExtResource("3_pa4ep")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llh0r"]
+atlas = ExtResource("3_pa4ep")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28ojh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa4ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo37i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pxtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaqh4")
+}],
+"loop": true,
+"name": &"bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ojh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqk3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1swge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llh0r")
+}],
+"loop": true,
+"name": &"bomb_1",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pa4ep"]
+radius = 5.0
+
+[node name="EnemyBomb" instance=ExtResource("1_jvhxg")]
+script = ExtResource("2_wo37i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_28ojh")
+animation = &"bomb_1"
+frame_progress = 0.47967505
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_pa4ep")
+
+[node name="Sprite2D" parent="." index="3"]
+visible = false

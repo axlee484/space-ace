@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw5ef4vmovwwm"]
+
+[ext_resource type="PackedScene" uid="uid://c6xpp4ay6frhg" path="res://bullets/enemy_bullet.tscn" id="1_pkik3"]
+[ext_resource type="Texture2D" uid="uid://c6wwr01hs5d0v" path="res://assets/lasers/spaceMissiles_040.png" id="2_j5hwa"]
+[ext_resource type="Script" uid="uid://c6nvy07rne0f6" path="res://bullets/homing_missile.gd" id="2_x7pn3"]
+
+[node name="HomingMissile" instance=ExtResource("1_pkik3")]
+script = ExtResource("2_x7pn3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="0"]
+rotation = 1.5707964
+amount = 32
+lifetime = 0.3
+randomness = 0.8
+lifetime_randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+
+[node name="Area2D" parent="." index="1"]
+rotation = 1.5707964
+
+[node name="Sprite2D" parent="." index="3"]
+rotation = 1.5707964
+texture = ExtResource("2_j5hwa")
+
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

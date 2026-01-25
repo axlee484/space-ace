@@ -30,8 +30,10 @@ scroll_speed = Vector2(0, 80)
 [node name="Sprite2D" parent="BG/Parallax2D3" index="0"]
 texture = ExtResource("3_vkbyq")
 
+[node name="BulletLayer" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(211, 587)
+position = Vector2(213, 657)
 SPEED = Vector2(200, 200)
 
 [node name="WaveManager" parent="." instance=ExtResource("7_ivpvi")]

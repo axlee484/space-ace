@@ -5,11 +5,16 @@ extends Node
 
 var BULLETS: Dictionary[GameManager.BULLET_TYPE, PackedScene] = {
 	GameManager.BULLET_TYPE.PLAYER_BULLET : preload("res://bullets/player_bullet.tscn"),
-	GameManager.BULLET_TYPE.ENEMY_BULLET : preload("res://bullets/player_bullet.tscn")
+	GameManager.BULLET_TYPE.ENEMY_BULLET : preload("res://bullets/enemy_bullet.tscn"),
+	GameManager.BULLET_TYPE.ENEMY_MISSILE: preload("res://bullets/homing_missile.tscn"),
+	GameManager.BULLET_TYPE.ENEMY_BOMB: preload("res://bullets/enemy_bomb.tscn")
 }
 
-var ENEMIES: Dictionary[GameManager.ENEMY_TYPE, PackedScene] = {
-	GameManager.ENEMY_TYPE.ZIPPER_ENEMY : preload("res://enemies/zipper_enemy.tscn"),
+var ENEMIES: Dictionary[String, PackedScene] = {
+	GameManager.ZIPPER_ENEMY : preload("res://enemies/zipper_enemy.tscn"),
+	GameManager.BOMBER_ENEMY: preload("res://enemies/bomber_enemy.tscn"),
+	GameManager.BIOMECH_ENEMY: preload("res://enemies/biomech_enemy.tscn"),
+	GameManager.SAUCER_ENEMY: preload("res://enemies/saucer_enemy.tscn")
 }
 
 
@@ -35,9 +40,10 @@ func createExplosion(position: Vector2, parent: Node2D = null):
 func createBullet(bulletType: GameManager.BULLET_TYPE, global_position: Vector2, direction: Vector2, speed: float, damage: float):
 	var bullet: BaseBullet = BULLETS[bulletType].instantiate()
 	bullet.setup(direction, global_position, speed, damage)
-	addNodeToTree(bullet)
+	var bulletLayer = get_tree().root.get_node_or_null("Level/BulletLayer")
+	addNodeToTree(bullet, bulletLayer)
 
 
-func createEnemy(enemyType: GameManager.ENEMY_TYPE) -> PathFollow2D:
+func createEnemy(enemyType: String) -> PathFollow2D:
 	var enemy: BaseEnemy = ENEMIES[enemyType].instantiate()
 	return enemy

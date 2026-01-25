@@ -112,15 +112,16 @@ animations = [{
 size = Vector2(37.75, 22)
 
 [node name="ZipperEnemy" instance=ExtResource("1_v6drp")]
-rotates = false
+SPEED = 0.5
+IS_SHOOTING = false
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_foesx")
-animation = &"zipper1_2"
-frame_progress = 0.22067769
+animation = &"zipper1"
+frame_progress = 0.0
 
-[node name="Area2D" parent="." index="1"]
+[node name="Area2D" parent="." index="2"]
 collision_layer = 2
 collision_mask = 4
 
